@@ -1,0 +1,88 @@
+/* Lato font */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+/* Pretendard */
+@import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 10s linear infinite;
+  }
+
+  .header-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .header-glass {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@layer utilities {
+  .shadow-custom {
+    box-shadow: 0 0 30px 3px var(--sub2);
+  }
+
+  .shadow-header {
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --light: #fff;
+  --main: #000;
+  --sub: #8b3dcc;
+  --sub2: #864fff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  overflow-x: hidden !important;
+  background-image: radial-gradient(
+    circle,
+    #000000,
+    #19000c,
+    #25011a,
+    #2c0029,
+    #2f003d,
+    #2b0544,
+    #260b4a,
+    #1f1151,
+    #201746,
+    #211b3b,
+    #221f2f,
+    #222222
+  );
+}
