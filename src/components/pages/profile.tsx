@@ -44,24 +44,24 @@ const Profile = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen flex items-center justify-around text-[var(--light)] my-10 px-6">
-      <div className="px-28 mx-auto flex flex-col md:flex-row gap-10 md:gap-32 items-start">
-        {/* 왼쪽: 이미지 */}
+    <section className="w-full h-screen flex items-center justify-around text-[var(--light)] my-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <div className="px-4 sm:px-8 md:px-12 lg:px-16 xl:px-28 mx-auto flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-16 xl:gap-32 items-start">
+        {/* 왼쪽: 이미지 (500px 이상에서만 표시) */}
         <div
           ref={imgRef}
-          className="w-[330px] min-w-[300px] h-auto rounded-xl shadow-lg overflow-hidden hover:shadow-custom transition-shadow duration-300"
+          className="hidden sm:block w-[280px] sm:w-[300px] md:w-[330px] min-w-[280px] sm:min-w-[300px] md:min-w-[300px] h-auto rounded-xl shadow-lg overflow-hidden hover:shadow-custom transition-shadow duration-300 mx-auto"
         >
           <img
             src="/profile.jpg"
             alt="profile"
-            className="w-full h-full object-cover object-center bg-no-repeat "
+            className="w-full h-full object-cover object-center bg-no-repeat"
           />
         </div>
 
         {/* 오른쪽 전체 */}
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 w-full">
           {/* 가운데: 소개글 */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 w-full lg:w-1/2">
             {[
               {
                 title: "Education",
@@ -90,12 +90,14 @@ const Profile = () => {
                 ref={(el) => setContentRef(el, i)} // useCallback을 통한 ref 설정
                 className="section"
               >
-                <h3 className="font-semibold text-5xl select-none mb-6">
+                <h3 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl select-none mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                   {section.title}
                 </h3>
-                <div className="text-2xl leading-loose">
+                <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:leading-loose">
                   {section.lines.map((line, j) => (
-                    <p key={j}>{line}</p>
+                    <p key={j} className="mb-2 sm:mb-3">
+                      {line}
+                    </p>
                   ))}
                 </div>
               </div>
@@ -103,7 +105,7 @@ const Profile = () => {
           </div>
 
           {/* 오른쪽: 스킬 목록 */}
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 w-full lg:w-1/2">
             {[
               {
                 title: "Languages",
@@ -131,10 +133,10 @@ const Profile = () => {
                 ref={(el) => setContentRef(el, i + 3)} // 기존 섹션 3개 후부터 시작
                 className="skill-item"
               >
-                <h3 className="font-semibold text-5xl select-none mb-6">
+                <h3 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl select-none mb-3 sm:mb-4 md:mb-5 lg:mb-6">
                   {item.title}
                 </h3>
-                <div className="text-2xl leading-loose">
+                <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:leading-loose">
                   <p>{item.desc}</p>
                 </div>
               </div>

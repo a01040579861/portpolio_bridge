@@ -70,12 +70,12 @@ const Project = () => {
     <section className="h-full grid place-items-center text-[var(--light)] my-10">
       <div className="text-center">
         <div className="text-6xl h-20 my-10 font-bold select-none">PROJECT</div>
-        <div className="grid grid-cols-5  gap-10 my-10 text-3xl text-center cursor-pointer">
+        <div className="flex justify-center gap-2 sm:gap-3 md:gap-5 my-6 text-base md:text-lg lg:text-xl xl:text-2xl text-center cursor-pointer">
           {categories.map((label, idx) => (
             <div
               key={idx}
               onClick={() => setSelectedCategory(label)}
-              className={`w-auto h-50 px-4 py-3 transition-all duration-300 
+              className={`w-auto px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 transition-all duration-300 
             ${
               selectedCategory === label
                 ? "bg-[var(--main)] text-[var(--sub2)] shadow-md scale-105"
@@ -88,7 +88,7 @@ const Project = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-8 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
         {filteredProjects.map((project, index) => (
           <div
             key={project.id}

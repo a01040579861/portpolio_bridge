@@ -74,7 +74,7 @@ const LogoSlider = ({
             key={`${folder}-${name}-${idx}`}
             src={`/slideLogos/${folder}/${name}.png`}
             alt={name}
-            className="h-20 px-3 cursor-pointer transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]"
+            className="h-10 sm:h-14 md:h-16 lg:h-20 xl:h-24 px-2 sm:px-3 cursor-pointer transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]"
           />
         ))}
       </motion.div>
