@@ -38,7 +38,7 @@ const logos3 = [
   "firebase",
   "firestore",
   "mariaDB",
-  "mongodb",
+  "mongoDB",
   "mysql",
   "netlify",
   "postman",
