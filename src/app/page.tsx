@@ -1,12 +1,12 @@
 "use client";
-import Header from "@/components/common/header";
-import Main from "@/components/pages/main";
-import Intro from "@/components/pages/intro";
-import LogoSlider from "@/components/logoSlider";
-import Profile from "@/components/pages/profile";
-import Project from "@/components/pages/project";
-import Point from "@/components/pages/point";
-import ScrollToUp from "@/components/scrollToUp";
+import Header from "@/components/common/Header";
+import Main from "@/components/pages/Main";
+import Intro from "@/components/pages/Intro";
+import LogoSlider from "@/components/LogoSlider";
+import Profile from "@/components/pages/Profile";
+import Project from "@/components/pages/Project";
+import Point from "@/components/pages/Point";
+import ScrollToUp from "@/components/ScrollToUp";
 import { useRef } from "react";
 import { SectionName } from "@/types/click";
 
@@ -59,15 +59,17 @@ const logos4 = [
 ];
 
 const Home = () => {
+  const introRef = useRef<HTMLDivElement | null>(null);
   const profileRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
-  const pointRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
 
   const scrollTo = (section: SectionName) => {
     const refs = {
+      intro: introRef,
       profile: profileRef,
       project: projectRef,
-      point: pointRef,
+      contact: contactRef,
     };
 
     refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
@@ -75,7 +77,9 @@ const Home = () => {
 
   return (
     <main className="w-full">
-      <Intro />
+      <div ref={introRef}>
+        <Intro />
+      </div>
       {/* 헤더 & 첫화면 */}
       <Header onNavigate={scrollTo} />
       <Main />
@@ -117,7 +121,7 @@ const Home = () => {
         />
       </div>
 
-      <div ref={pointRef}>
+      <div ref={contactRef}>
         <Point />
       </div>
       {/* 네 번째 슬라이드 */}

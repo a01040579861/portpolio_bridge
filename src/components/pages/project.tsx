@@ -114,11 +114,11 @@ const Project = () => {
       {modalOpen && selectedIndex !== null && (
         <div
           onClick={handleCloseModal}
-          className="fixed inset-0 z-50 bg-[var(--main)] flex justify-center items-center transition-opacity duration-300 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/60 flex justify-center items-center transition-opacity duration-300 animate-fadeIn"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-[var(--main)] max-w-[90%] w-full max-h-[80%] overflow-y-auto relative animate-zoomIn rounded-lg flex flex-col"
+            className="bg-black/60 max-w-[90%] w-full max-h-[80%] overflow-y-auto relative animate-zoomIn rounded-lg flex flex-col"
           >
             <button
               onClick={handleCloseModal}
@@ -149,6 +149,52 @@ const Project = () => {
                 <p className="text-5xl mb-10 font-bold text-[var(--light)]">
                   {filteredProjects[selectedIndex].description}
                 </p>
+
+                {/* 팀 프로젝트에서만 내 리더십/기여도/맡은 작업 표시 */}
+                {filteredProjects[selectedIndex].isTeamProject && (
+                  <>
+                    {filteredProjects[selectedIndex].leadership && (
+                      <div className="mb-4">
+                        <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                          리더십
+                        </div>
+                        <div className="text-lg text-gray-200">
+                          {filteredProjects[selectedIndex].leadership}
+                        </div>
+                      </div>
+                    )}
+                    {filteredProjects[selectedIndex].contribution && (
+                      <div className="mb-4">
+                        <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                          기여도
+                        </div>
+                        <div className="text-lg text-gray-200">
+                          {filteredProjects[selectedIndex].contribution}
+                        </div>
+                      </div>
+                    )}
+                    {filteredProjects[selectedIndex].myTasks &&
+                      filteredProjects[selectedIndex].myTasks.length > 0 && (
+                        <div className="mb-4">
+                          <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                            맡은 작업
+                          </div>
+                          <ul className="list-disc space-y-1">
+                            {filteredProjects[selectedIndex].myTasks.map(
+                              (task, idx) => (
+                                <li
+                                  key={idx}
+                                  className="text-base text-gray-200"
+                                >
+                                  {task}
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                  </>
+                )}
 
                 {/* 프로젝트 기간 */}
                 <p className="text-3xl mb-10 text-[var(--light)]">

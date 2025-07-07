@@ -132,6 +132,13 @@ export interface ProjectItem {
   // SEO 및 접근성
   altText?: string;
   keywords?: string[];
+
+  // 팀 프로젝트에서 내 리더십 발휘 내용
+  leadership?: string;
+  // 팀 프로젝트에서 내 프로젝트 기여도 (예: 40%)
+  contribution?: string;
+  // 팀 프로젝트에서 내가 맡은 작업 상세 설명 (여러 줄 가능)
+  myTasks?: string[];
 }
 
 // 프로젝트 필터 옵션

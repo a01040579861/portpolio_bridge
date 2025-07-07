@@ -23,6 +23,10 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
+
+  .text-shadow-custom {
+    text-shadow: 0 0 18px var(--sub2), 0 0 6px var(--sub2), 0 0 2px var(--sub2);
+  }
 }
 
 @layer utilities {

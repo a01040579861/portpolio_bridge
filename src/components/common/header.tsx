@@ -30,6 +30,15 @@ const Header = ({ onNavigate }: HeaderProps) => {
           className={`hover:text-sub2 transition-all duration-300 ${
             isScrolled ? "hover:text-blue-400 hover:scale-105" : ""
           }`}
+          onClick={() => onNavigate("intro")}
+        >
+          <span className="hidden sm:inline">INTRO</span>
+          <span className="sm:hidden">INTRO</span>
+        </div>
+        <div
+          className={`hover:text-sub2 transition-all duration-300 ${
+            isScrolled ? "hover:text-blue-400 hover:scale-105" : ""
+          }`}
           onClick={() => onNavigate("profile")}
         >
           <span className="hidden sm:inline">PROFILE</span>
@@ -48,10 +57,10 @@ const Header = ({ onNavigate }: HeaderProps) => {
           className={`hover:text-sub2 transition-all duration-300 ${
             isScrolled ? "hover:text-blue-400 hover:scale-105" : ""
           }`}
-          onClick={() => onNavigate("point")}
+          onClick={() => onNavigate("contact")}
         >
-          <span className="hidden sm:inline">POINT</span>
-          <span className="sm:hidden">POINT</span>
+          <span className="hidden sm:inline">CONTACT</span>
+          <span className="sm:hidden">CONTACT</span>
         </div>
       </div>
     </div>

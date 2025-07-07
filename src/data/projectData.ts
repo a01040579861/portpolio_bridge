@@ -61,6 +61,16 @@ export const projectData: ProjectItem[] = [
     createdAt: "2025-04-18",
     updatedAt: "2025-06-24",
     tags: ["야구", "커뮤니티", "실시간"],
+    leadership: "팀원 간 소통하고, 웹크롤링 및 json설계 담당, 백엔드 서버 담당",
+    contribution: "약 35% (크롤링, 프론트엔드 UI/UX)",
+    myTasks: [
+      "구단별 사이트 상품 데이터 크롤링",
+      "구단별 콜라보 상품 데이터 크롤링",
+      "json 파일 병합 및 json 서버 구축",
+      "Event Promotion 페이지 개발",
+      "Play 페이지 개발",
+      "Play All 페이지 개발",
+    ],
   },
   {
     id: 1,
@@ -134,6 +144,13 @@ export const projectData: ProjectItem[] = [
     createdAt: "2025-01-03",
     updatedAt: "2025-01-09",
     tags: ["UI/UX", "수면", "헬스케어"],
+    leadership: "UI/UX 설계 방향을 제시하고 팀원 간 역할 분담을 조율함.",
+    contribution: "약 40% (UX 설계, 와이어프레임, 페이지 작업)",
+    myTasks: [
+      "UX 설계 및 사용자 흐름 정의",
+      "와이어프레임 제작 및 검토",
+      "팀원들과의 UI/UX 회의 주도",
+    ],
   },
   {
     id: 3,
@@ -225,6 +242,13 @@ export const projectData: ProjectItem[] = [
     createdAt: "2025-03-24",
     updatedAt: "2025-04-02",
     tags: ["농작물", "거래", "친환경"],
+    leadership: "팀 내 UI/UX 방향성 제안 및 제품 상세페이지 개발을 주도함.",
+    contribution: "약 45% (UI/UX, 제품 상세페이지, json설계)",
+    myTasks: [
+      "제품 상세페이지 UI/UX 설계 및 개발",
+      "json 데이터 구조 설계 및 구현",
+      "팀원들과의 UI/UX 회의 참여 및 피드백 제공",
+    ],
   },
   {
     id: 5,
