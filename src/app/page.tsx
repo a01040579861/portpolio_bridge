@@ -1,12 +1,12 @@
 "use client";
-import Header from "@/components/common/Header";
-import Main from "@/components/pages/Main";
-import Intro from "@/components/pages/Intro";
-import LogoSlider from "@/components/LogoSlider";
-import Profile from "@/components/pages/Profile";
-import Project from "@/components/pages/Project";
-import Point from "@/components/pages/Point";
-import ScrollToUp from "@/components/ScrollToUp";
+import Header from "@/components/common/header";
+import Main from "@/components/pages/main";
+import Intro from "@/components/pages/intro";
+import LogoSlider from "@/components/logoSlider";
+import Profile from "@/components/pages/profile";
+import Project from "@/components/pages/project";
+import Point from "@/components/pages/point";
+import ScrollToUp from "@/components/scrollToUp";
 import { useRef } from "react";
 import { SectionName } from "@/types/click";
 
