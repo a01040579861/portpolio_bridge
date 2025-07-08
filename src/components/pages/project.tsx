@@ -146,7 +146,7 @@ const Project = () => {
                     : "max-h-0 opacity-0 py-0"
                 }`}
               >
-                <p className="text-5xl mb-10 font-bold text-[var(--light)]">
+                <p className="text-4xl mb-10 font-bold text-[var(--light)]">
                   {filteredProjects[selectedIndex].description}
                 </p>
 
@@ -155,20 +155,20 @@ const Project = () => {
                   <>
                     {filteredProjects[selectedIndex].leadership && (
                       <div className="mb-4">
-                        <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                        <div className="text-3xl font-semibold text-[var(--sub2)] mb-2">
                           리더십
                         </div>
-                        <div className="text-lg text-gray-200">
+                        <div className="text-xl text-gray-200">
                           {filteredProjects[selectedIndex].leadership}
                         </div>
                       </div>
                     )}
                     {filteredProjects[selectedIndex].contribution && (
                       <div className="mb-4">
-                        <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                        <div className="text-3xl font-semibold text-[var(--sub2)] mb-2">
                           기여도
                         </div>
-                        <div className="text-lg text-gray-200">
+                        <div className="text-xl text-gray-200">
                           {filteredProjects[selectedIndex].contribution}
                         </div>
                       </div>
@@ -176,16 +176,13 @@ const Project = () => {
                     {filteredProjects[selectedIndex].myTasks &&
                       filteredProjects[selectedIndex].myTasks.length > 0 && (
                         <div className="mb-4">
-                          <div className="text-2xl font-semibold text-[var(--sub2)] mb-2">
+                          <div className="text-3xl font-semibold text-[var(--sub2)] mb-2">
                             맡은 작업
                           </div>
                           <ul className="list-disc space-y-1">
                             {filteredProjects[selectedIndex].myTasks.map(
                               (task, idx) => (
-                                <li
-                                  key={idx}
-                                  className="text-base text-gray-200"
-                                >
+                                <li key={idx} className="text-xl text-gray-200">
                                   {task}
                                 </li>
                               )
@@ -197,12 +194,12 @@ const Project = () => {
                 )}
 
                 {/* 프로젝트 기간 */}
-                <p className="text-3xl mb-10 text-[var(--light)]">
+                <p className="text-2xl mb-10 text-[var(--light)]">
                   <strong>프로젝트 기간:</strong>{" "}
                   {filteredProjects[selectedIndex].period.start} ~{" "}
                   {filteredProjects[selectedIndex].period.end || "진행 중"}
                   {filteredProjects[selectedIndex].period.duration && (
-                    <span className="text-2xl text-gray-300 ml-4">
+                    <span className="text-xl text-gray-300 ml-4">
                       ({filteredProjects[selectedIndex].period.duration})
                     </span>
                   )}
@@ -210,7 +207,7 @@ const Project = () => {
 
                 {/* 프로젝트 참여인원 */}
                 <div className="mb-10">
-                  <p className="text-3xl mb-4 text-[var(--light)]">
+                  <p className="text-2xl mb-4 text-[var(--light)]">
                     <strong>프로젝트 참여인원:</strong>{" "}
                     {filteredProjects[selectedIndex].members.length}명
                   </p>
@@ -267,6 +264,7 @@ const Project = () => {
 
                 {/* 프로젝트 링크 */}
                 {(filteredProjects[selectedIndex].links.github ||
+                  filteredProjects[selectedIndex].links.backgit ||
                   filteredProjects[selectedIndex].links.live ||
                   filteredProjects[selectedIndex].links.figma) && (
                   <div className="mb-10">
@@ -282,6 +280,16 @@ const Project = () => {
                           className="bg-[var(--sub2)] text-[var(--light)] px-4 py-2 rounded-md text-lg hover:bg-[var(--sub)] duration-300"
                         >
                           GitHub
+                        </a>
+                      )}
+                      {filteredProjects[selectedIndex].links.backgit && (
+                        <a
+                          href={filteredProjects[selectedIndex].links.backgit}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-[var(--sub2)] text-[var(--light)] px-4 py-2 rounded-md text-lg hover:bg-[var(--sub)] duration-300"
+                        >
+                          Back Git
                         </a>
                       )}
                       {filteredProjects[selectedIndex].links.live && (

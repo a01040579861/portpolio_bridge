@@ -15,7 +15,7 @@ export const projectData: ProjectItem[] = [
     status: PROJECT_STATUS.COMPLETED,
     members: [
       {
-        name: "김다예",
+        name: "김다예(PM)",
         role: "Detail, ProductList, 웹크롤링, json설계",
       },
       { name: "장효아", role: "UI 총괄, Login, MyPage" },
@@ -32,6 +32,7 @@ export const projectData: ProjectItem[] = [
     },
     links: {
       github: "https://github.com/dayekimm0/Rookie.git",
+      backgit: "https://github.com/a01040579861/RookieJson.git",
       live: "https://rookie-dd013.web.app/",
     },
     techStack: [
@@ -86,8 +87,8 @@ export const projectData: ProjectItem[] = [
       duration: "진행 중",
     },
     links: {
-      github: "",
-      live: "",
+      github: "https://github.com/a01040579861/portpolio_bridge.git",
+      live: "https://bridge-vert.vercel.app/",
     },
     techStack: [
       { name: "HTML5", category: TECH_CATEGORIES.FRONTEND },
@@ -100,7 +101,7 @@ export const projectData: ProjectItem[] = [
       thumbnail: "/Bridge/thumbnail.png",
       images: ["/Bridge/bridge.png"],
     },
-    features: [],
+    features: [{ title: "포트폴리오", description: "개인 포트폴리오" }],
     createdAt: "2025-06-05",
     updatedAt: "2025-06-05",
     tags: ["포트폴리오", "Next.js", "TypeScript"],
@@ -118,7 +119,10 @@ export const projectData: ProjectItem[] = [
         name: "홍민주",
         role: "UI 디자인 총괄, 전반적인 페이지 작업, 와이어프레임",
       },
-      { name: "이성일", role: "UX 총괄, 전반적인 페이지 작업, 와이어프레임" },
+      {
+        name: "이성일(PM)",
+        role: "UX 총괄, 전반적인 페이지 작업, 와이어프레임",
+      },
       { name: "정휘찬", role: "와이어프레임" },
       { name: "황예진", role: "와이어프레임" },
     ],
@@ -160,7 +164,7 @@ export const projectData: ProjectItem[] = [
     category: PROJECT_CATEGORIES.TEAM_PROJECT,
     status: PROJECT_STATUS.COMPLETED,
     members: [
-      { name: "손종민", role: "curl, 거래차트페이지" },
+      { name: "손종민(PM)", role: "curl, 거래차트페이지" },
       { name: "이재원", role: "curl, 쪽지함로직, 마이페이지" },
       { name: "최의찬", role: "sdk, 디자인 서브, 메인페이지" },
       { name: "이성일", role: "curl, 로그인페이지, 디자인 서브" },
@@ -204,7 +208,7 @@ export const projectData: ProjectItem[] = [
     category: PROJECT_CATEGORIES.TEAM_PROJECT,
     status: PROJECT_STATUS.COMPLETED,
     members: [
-      { name: "송명관", role: "UI/UX, 프론트엔드, 로그인페이지" },
+      { name: "송명관(PM)", role: "UI/UX, 프론트엔드, 로그인페이지" },
       {
         name: "장효아",
         role: "UI/UX, 프론트엔드, 디자인 총괄, 이벤트프로모션",
@@ -329,7 +333,7 @@ export const projectData: ProjectItem[] = [
     category: PROJECT_CATEGORIES.TEAM_PROJECT,
     status: PROJECT_STATUS.COMPLETED,
     members: [
-      { name: "이재익", role: "sdk, camera" },
+      { name: "이재익(PM)", role: "sdk, camera" },
       { name: "이성일", role: "Login, design" },
       { name: "손종민", role: "notice, main" },
     ],
@@ -417,7 +421,7 @@ export const projectData: ProjectItem[] = [
     category: PROJECT_CATEGORIES.TEAM_PROJECT,
     status: PROJECT_STATUS.COMPLETED,
     members: [
-      { name: "최지훈", role: "프론트엔드" },
+      { name: "최지훈(PM)", role: "프론트엔드" },
       { name: "이성일", role: "프론트엔드" },
       { name: "변희재", role: "프론트엔드" },
       { name: "윤기남", role: "백엔드" },
@@ -492,5 +496,41 @@ export const projectData: ProjectItem[] = [
     createdAt: "2022-04-07",
     updatedAt: "2022-04-10",
     tags: ["SNS", "커뮤니티", "메신저"],
+  },
+  {
+    id: 11,
+    title: "Health Records",
+    subtitle: "animation custom project",
+    description: "애니메이션 커스텀 싱글 프로젝트",
+    category: PROJECT_CATEGORIES.FRONTEND,
+    status: PROJECT_STATUS.COMPLETED,
+    members: [{ name: "이성일", role: "프론트엔드" }],
+    isTeamProject: false,
+    period: {
+      start: "2025-01-21",
+      end: "2022-01-23",
+      duration: "2일",
+    },
+    links: {
+      github: "https://github.com/a01040579861/animation-project.git",
+      live: "https://lsi-health-records.netlify.app/",
+    },
+    techStack: [
+      { name: "HTML5", category: TECH_CATEGORIES.FRONTEND },
+      { name: "CSS3", category: TECH_CATEGORIES.FRONTEND },
+      { name: "JavaScript", category: TECH_CATEGORIES.FRONTEND },
+    ],
+    media: {
+      thumbnail: "/Health/thumbnail.png",
+      images: ["/Health/health.png"],
+    },
+    architecture: "/Cyworld/thumbnail.png",
+    features: [
+      { title: "헬스", description: "본인 사진" },
+      { title: "기록", description: "운동 기록" },
+    ],
+    createdAt: "2025-01-21",
+    updatedAt: "2022-01-23",
+    tags: ["건강", "기록", "운동종류"],
   },
 ];

@@ -14,6 +14,8 @@ const Profile = () => {
   const [selectedCompany, setSelectedCompany] = useState<CompanyHistory | null>(
     null
   );
+  const workHistoryTitleRef = useRef<HTMLHeadingElement>(null);
+  const [showWorkHistoryTip, setShowWorkHistoryTip] = useState(false);
 
   // ref 콜백 함수로 값 설정
   const setContentRef = useCallback(
@@ -72,6 +74,28 @@ const Profile = () => {
         "+=1.0" // 1초 정도 보여주고 사라지게
       );
     }
+  }, []);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowWorkHistoryTip(true);
+            setTimeout(() => setShowWorkHistoryTip(false), 2000);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    if (workHistoryTitleRef.current) {
+      observer.observe(workHistoryTitleRef.current);
+    }
+    return () => {
+      if (workHistoryTitleRef.current) {
+        observer.unobserve(workHistoryTitleRef.current);
+      }
+    };
   }, []);
 
   // 모달이 열릴 때 외부 스크롤 방지
@@ -161,12 +185,20 @@ const Profile = () => {
                 ref={(el) => setContentRef(el, i)}
                 className="section"
               >
-                <h3 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl select-none mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                <h3
+                  ref={
+                    section.title === "Work History"
+                      ? workHistoryTitleRef
+                      : undefined
+                  }
+                  className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl select-none mb-3 sm:mb-4 md:mb-5 lg:mb-6"
+                >
                   {section.title}
                   {section.title === "Work History" && (
                     <span
-                      ref={workHistoryDetailRef}
-                      className="select-none ml-3 opacity-0 text-base text-[var(--sub2)] align-middle font-normal transition-opacity duration-500 text-shadow-custom"
+                      className={`select-none ml-3 text-base text-[var(--sub2)] align-middle font-normal transition-opacity duration-500 text-shadow-custom ${
+                        showWorkHistoryTip ? "opacity-100" : "opacity-0"
+                      }`}
                     >
                       경력 상세정보 보기 (기업명 클릭)
                     </span>

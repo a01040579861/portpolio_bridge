@@ -72,6 +72,7 @@ export interface ProjectPeriod {
 // 프로젝트 링크
 export interface ProjectLinks {
   github?: string;
+  backgit?: string;
   live?: string;
   demo?: string;
   figma?: string;

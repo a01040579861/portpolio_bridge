@@ -19,9 +19,9 @@
   }
 
   .header-glass {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(30, 30, 60, 0.15); /* 아주 약간의 어두운 투명 배경 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .text-shadow-custom {
