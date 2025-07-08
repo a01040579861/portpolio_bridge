@@ -1,5 +1,7 @@
 # 🏗️ Bridge - 포트폴리오 사이트
 
+[https://bridge-vert.vercel.app/](https://bridge-vert.vercel.app/) 배포서버
+
 <img src="public/logo.png" alt="Bridge Logo" width="28" style="display:inline; vertical-align:middle;"/> 프론트엔드개발자 이성일의 포트폴리오입니다.
 
 ## 📋 프로젝트 소개
