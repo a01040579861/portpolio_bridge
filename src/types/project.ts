@@ -39,6 +39,7 @@ export const TECH_CATEGORIES = {
   DATABASE: "DATABASE",
   DEVOPS: "DEVOPS",
   TOOLS: "TOOLS",
+  SERVER: "SERVER",
 } as const;
 
 export type TechCategory =
@@ -102,7 +103,7 @@ export interface ProjectItem {
   title: string;
   subtitle?: string;
   description: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
   status: ProjectStatus;
 
   // 팀 정보
@@ -118,9 +119,6 @@ export interface ProjectItem {
 
   // 미디어
   media: ProjectMedia;
-
-  // 아키텍처
-  architecture?: string;
 
   // 상세 정보
   features: ProjectFeature[];
@@ -199,14 +197,14 @@ export interface ProjectDetail extends ProjectItem {
 export type ProjectWithoutId = Omit<ProjectItem, "id">;
 export type ProjectSummary = Pick<
   ProjectItem,
-  "id" | "title" | "category" | "media" | "period" | "techStack"
+  "id" | "title" | "categories" | "media" | "period" | "techStack"
 >;
 export type ProjectCard = Pick<
   ProjectItem,
   | "id"
   | "title"
   | "description"
-  | "category"
+  | "categories"
   | "media"
   | "period"
   | "techStack"
@@ -221,7 +219,7 @@ export const ProjectUtils = {
     category: ProjectCategory
   ): ProjectItem[] => {
     if (category === PROJECT_CATEGORIES.ALL) return projects;
-    return projects.filter((project) => project.category === category);
+    return projects.filter((project) => project.categories.includes(category));
   },
 
   // 기술 스택별 프로젝트 필터링
@@ -267,7 +265,9 @@ export const ProjectUtils = {
       case "name":
         return sorted.sort((a, b) => a.title.localeCompare(b.title));
       case "category":
-        return sorted.sort((a, b) => a.category.localeCompare(b.category));
+        return sorted.sort((a, b) =>
+          a.categories[0].localeCompare(b.categories[0])
+        );
       case "status":
         return sorted.sort((a, b) => a.status.localeCompare(b.status));
       default:

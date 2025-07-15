@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { projectData } from "@/data/projectData";
 import {
   ProjectCategory,
   ProjectItem,
   PROJECT_CATEGORIES,
 } from "@/types/project";
+import ScrollToUp from "@/components/scrollToUp";
 
 const categories: ProjectCategory[] = [
   PROJECT_CATEGORIES.ALL,
@@ -23,6 +24,8 @@ const Project = () => {
     PROJECT_CATEGORIES.ALL
   );
   const [isDetailOpen, setIsDetailOpen] = useState(true);
+  const modalContentRef = useRef<HTMLDivElement>(null);
+  // mousePos, handleMouseMove, handleTouchMove 등 모두 제거
 
   // Google Drive URL을 embed URL로 변환하는 함수
   const convertToEmbedUrl = (url: string) => {
@@ -61,10 +64,15 @@ const Project = () => {
     };
   }, [modalOpen]);
 
+  // 마우스/터치 위치 추적 핸들러
+  // mousePos, handleMouseMove, handleTouchMove 등 모두 제거
+
   const filteredProjects: ProjectItem[] =
     selectedCategory === PROJECT_CATEGORIES.ALL
       ? projectData
-      : projectData.filter((project) => project.category === selectedCategory);
+      : projectData.filter((project) =>
+          project.categories?.includes(selectedCategory)
+        );
 
   return (
     <section className="h-full grid place-items-center text-[var(--light)] my-10">
@@ -118,6 +126,7 @@ const Project = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
+            ref={modalContentRef}
             className="bg-black/60 max-w-[90%] w-full max-h-[80%] overflow-y-auto relative animate-zoomIn rounded-lg flex flex-col"
           >
             <button
@@ -146,7 +155,7 @@ const Project = () => {
                     : "max-h-0 opacity-0 py-0"
                 }`}
               >
-                <p className="text-4xl mb-10 font-bold text-[var(--light)]">
+                <p className="text-3xl mb-10 font-bold text-[var(--light)]">
                   {filteredProjects[selectedIndex].description}
                 </p>
 
@@ -299,7 +308,7 @@ const Project = () => {
                           rel="noopener noreferrer"
                           className="bg-[var(--sub2)] text-[var(--light)] px-4 py-2 rounded-md text-lg hover:bg-[var(--sub)] duration-300"
                         >
-                          Live Demo
+                          Live
                         </a>
                       )}
                       {filteredProjects[selectedIndex].links.figma && (
@@ -337,58 +346,59 @@ const Project = () => {
                       </div>
                     </div>
                   )}
-
-                {/* 아키텍처 이미지 */}
-                {filteredProjects[selectedIndex].architecture ? (
-                  <div className="mb-10">
-                    <div className="text-2xl mb-4 font-semibold text-[var(--light)]">
-                      아키텍처
-                    </div>
-                    <img
-                      src={filteredProjects[selectedIndex].architecture}
-                      alt={`${filteredProjects[selectedIndex].title} 아키텍처`}
-                      className="w-full max-w-2xl object-contain bg-no-repeat bg-center rounded-lg"
-                    />
-                  </div>
-                ) : (
-                  <div className="text-2xl mb-10 font-semibold text-[var(--light)] cursor-default">
-                    피그마 프로젝트
-                  </div>
-                )}
               </div>
             </div>
 
             {filteredProjects[selectedIndex] && (
-              <div className="mt-6">
-                {/* 비디오 or 이미지 조건 렌더링 */}
-                {filteredProjects[selectedIndex].media.video ? (
-                  filteredProjects[selectedIndex].media.video.includes(
-                    "drive.google.com"
-                  ) ? (
-                    <iframe
-                      src={convertToEmbedUrl(
-                        filteredProjects[selectedIndex].media.video
-                      )}
-                      className="w-full h-[500px] rounded-lg mb-4"
-                      allowFullScreen
-                    />
-                  ) : (
-                    <video
-                      src={filteredProjects[selectedIndex].media.video}
-                      controls
-                      className="w-full rounded-lg mb-4"
-                    />
+              <div className="mt-6 flex flex-col gap-4">
+                {/* 이미지 선 */}
+                {filteredProjects[selectedIndex].media.images &&
+                filteredProjects[selectedIndex].media.images.length > 0 ? (
+                  filteredProjects[selectedIndex].media.images.map(
+                    (img, idx) => (
+                      <img
+                        key={idx}
+                        src={img}
+                        alt={filteredProjects[selectedIndex].title}
+                        className="w-full object-contain rounded-lg mb-4"
+                      />
+                    )
                   )
                 ) : (
                   <img
-                    src={
-                      filteredProjects[selectedIndex].media.images?.[0] ||
-                      filteredProjects[selectedIndex].media.thumbnail
-                    }
+                    src={filteredProjects[selectedIndex].media.thumbnail}
                     alt={filteredProjects[selectedIndex].title}
                     className="w-full object-contain rounded-lg mb-4"
                   />
                 )}
+
+                {/* 동영상 후 */}
+                {filteredProjects[selectedIndex].media.video && (
+                  <>
+                    <div className="text-3xl font-bold mb-2 text-[var(--light)]">
+                      시현영상
+                    </div>
+                    {filteredProjects[selectedIndex].media.video.includes(
+                      "drive.google.com"
+                    ) ? (
+                      <iframe
+                        src={convertToEmbedUrl(
+                          filteredProjects[selectedIndex].media.video
+                        )}
+                        className="w-full h-[500px] rounded-lg mb-4"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video
+                        src={filteredProjects[selectedIndex].media.video}
+                        controls
+                        className="w-full rounded-lg mb-4"
+                      />
+                    )}
+                  </>
+                )}
+                {/* 모달 전용 스크롤 업 버튼 */}
+                {/* 모달창 내부 및 오버레이에 스크롤 업 버튼이 전혀 렌더링되지 않도록 한다. */}
               </div>
             )}
           </div>
