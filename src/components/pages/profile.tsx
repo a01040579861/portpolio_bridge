@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import gsap from "gsap";
 import { companyHistories, CompanyHistory } from "@/types/history";
+import LinkTip from "@/components/common/linkTip";
 
 const Profile = () => {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -195,13 +196,10 @@ const Profile = () => {
                 >
                   {section.title}
                   {section.title === "Work History" && (
-                    <span
-                      className={`select-none ml-3 text-base text-[var(--sub2)] align-middle font-normal transition-opacity duration-500 text-shadow-custom ${
-                        showWorkHistoryTip ? "opacity-100" : "opacity-0"
-                      }`}
-                    >
-                      경력 상세정보 보기 (기업명 클릭)
-                    </span>
+                    <LinkTip
+                      show={showWorkHistoryTip}
+                      text="경력 상세정보 보기 (기업명 클릭)"
+                    />
                   )}
                 </h3>
                 <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed sm:leading-loose">

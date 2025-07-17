@@ -1,4 +1,6 @@
 "use client";
+import { useRef, useEffect } from "react";
+import { SectionName } from "@/types/click";
 import Header from "@/components/common/header";
 import Main from "@/components/pages/main";
 import Intro from "@/components/pages/intro";
@@ -7,8 +9,6 @@ import Profile from "@/components/pages/profile";
 import Project from "@/components/pages/project";
 import Point from "@/components/pages/point";
 import ScrollToUp from "@/components/scrollToUp";
-import { useRef } from "react";
-import { SectionName } from "@/types/click";
 
 const logos1 = [
   "html",
@@ -63,6 +63,27 @@ const Home = () => {
   const profileRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // 우클릭 방지
+    const handleContextMenu = (e: MouseEvent) => e.preventDefault();
+    // F12, Ctrl+Shift+I, Ctrl+U 등 방지
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") ||
+        (e.ctrlKey && e.key.toLowerCase() === "u")
+      ) {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const scrollTo = (section: SectionName) => {
     const refs = {

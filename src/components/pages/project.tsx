@@ -8,6 +8,7 @@ import {
   PROJECT_CATEGORIES,
 } from "@/types/project";
 import ScrollToUp from "@/components/scrollToUp";
+import LinkTip from "@/components/common/linkTip";
 
 const categories: ProjectCategory[] = [
   PROJECT_CATEGORIES.ALL,
@@ -25,7 +26,13 @@ const Project = () => {
   );
   const [isDetailOpen, setIsDetailOpen] = useState(true);
   const modalContentRef = useRef<HTMLDivElement>(null);
-  // mousePos, handleMouseMove, handleTouchMove 등 모두 제거
+  const [showLinkTip, setShowLinkTip] = useState(false);
+  const [isLinkFocused, setIsLinkFocused] = useState(false);
+
+  const handleLinkMouseEnter = () => setIsLinkFocused(true);
+  const handleLinkMouseLeave = () => setIsLinkFocused(false);
+  const handleLinkFocus = () => setIsLinkFocused(true);
+  const handleLinkBlur = () => setIsLinkFocused(false);
 
   // Google Drive URL을 embed URL로 변환하는 함수
   const convertToEmbedUrl = (url: string) => {
@@ -62,6 +69,14 @@ const Project = () => {
     return () => {
       document.body.style.overflow = "auto";
     };
+  }, [modalOpen]);
+
+  useEffect(() => {
+    if (modalOpen) {
+      setShowLinkTip(true);
+      const timer = setTimeout(() => setShowLinkTip(false), 2000);
+      return () => clearTimeout(timer);
+    }
   }, [modalOpen]);
 
   // 마우스/터치 위치 추적 핸들러
@@ -277,8 +292,19 @@ const Project = () => {
                   filteredProjects[selectedIndex].links.live ||
                   filteredProjects[selectedIndex].links.figma) && (
                   <div className="mb-10">
-                    <div className="text-2xl mb-4 font-semibold text-[var(--light)]">
+                    <div
+                      className="text-2xl mb-4 font-semibold text-[var(--light)] flex items-center"
+                      onMouseEnter={handleLinkMouseEnter}
+                      onMouseLeave={handleLinkMouseLeave}
+                      onFocus={handleLinkFocus}
+                      onBlur={handleLinkBlur}
+                      tabIndex={0}
+                    >
                       프로젝트 링크
+                      <LinkTip
+                        show={showLinkTip || isLinkFocused}
+                        text="버튼 클릭 시 이동됩니다."
+                      />
                     </div>
                     <div className="flex flex-wrap gap-4">
                       {filteredProjects[selectedIndex].links.github && (

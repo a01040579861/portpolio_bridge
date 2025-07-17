@@ -35,6 +35,8 @@ export const projectData: ProjectItem[] = [
     },
     links: {
       github: "https://github.com/dayekimm0/Rookie.git",
+      figma:
+        "https://www.figma.com/design/tsqEyJgvsZZGJb0i37yC8a/Rook---Perfectgame?node-id=2032-2212&t=U9SkVjM8CIkQRDRU-1",
       backgit: "https://github.com/a01040579861/RookieJson.git",
       live: "https://rookie-dd013.web.app/",
     },
@@ -55,6 +57,8 @@ export const projectData: ProjectItem[] = [
     media: {
       thumbnail: "/Rookie/thumbnail.png",
       images: ["/Rookie/rookie.png"],
+      video:
+        "https://drive.google.com/file/d/1McCuhBia-JrSOtWCnp4XW8gOHlkzpppd/preview",
     },
     features: [
       {
@@ -62,6 +66,10 @@ export const projectData: ProjectItem[] = [
         description: "야구 팬들이 소통할 수 있는 공간",
       },
       { title: "실시간 경기 정보", description: "실시간 야구 경기 정보 제공" },
+      { title: "응원도구", description: "제품" },
+      { title: "유니폼", description: "제품" },
+      { title: "이벤트", description: "게임" },
+      { title: "야구 동영상", description: "영상 제공" },
     ],
     createdAt: "2025-04-18",
     updatedAt: "2025-06-24",
@@ -71,10 +79,12 @@ export const projectData: ProjectItem[] = [
     myTasks: [
       "구단별 사이트 상품 데이터 크롤링",
       "구단별 콜라보 상품 데이터 크롤링",
-      "json 파일 병합 및 json 서버 구축",
+      "json 데이터 병합",
+      "json Netlify에 배포(백엔드 서버)",
       "Event Promotion 페이지 개발",
       "Event Promotion 동적 GSAP 적용",
-      "Event Promotion coupon data 생성",
+      "쿠폰 가중치 당첨 게임 개발",
+      "Event Promotion coupon data 생성 및 FireStore users 서브컬렉션으로 저장",
       "Play 페이지 개발",
       "Play All 페이지 개발",
     ],
@@ -94,6 +104,8 @@ export const projectData: ProjectItem[] = [
     },
     links: {
       github: "https://github.com/a01040579861/portpolio_bridge.git",
+      figma:
+        "https://www.figma.com/design/Uz50mrISqDWDvPSPSu1T6u/Bridge?node-id=248-38&t=ft6knoRTipGpZPmK-1",
       live: "https://bridge-vert.vercel.app/",
     },
     techStack: [
@@ -103,6 +115,7 @@ export const projectData: ProjectItem[] = [
       { name: "TypeScript", category: TECH_CATEGORIES.FRONTEND },
       { name: "GSAP", category: TECH_CATEGORIES.FRONTEND },
       { name: "Vercel", category: TECH_CATEGORIES.SERVER },
+      { name: "Git", category: TECH_CATEGORIES.DEVOPS },
     ],
     media: {
       thumbnail: "/Bridge/thumbnail.png",
@@ -141,7 +154,7 @@ export const projectData: ProjectItem[] = [
     },
     links: {
       figma:
-        "https://www.figma.com/design/FY3NpMQe7chjl1XnutgmuL/EZsleep_team_presentation?node-id=0-1&t=LGK1YDUWZeqek5ts-1",
+        "https://www.figma.com/design/FY3NpMQe7chjl1XnutgmuL/EZsleep_team_presentation?node-id=0-1&t=ODH4HBKAaery1Sq0-1",
     },
     techStack: [{ name: "Figma", category: TECH_CATEGORIES.TOOLS }],
     media: {
@@ -241,6 +254,8 @@ export const projectData: ProjectItem[] = [
     },
     links: {
       github: "https://github.com/Myeongkwan72/NongDam.git",
+      figma:
+        "https://www.figma.com/design/gvigBI1WUt7ljVpFkB5gMv/%EB%86%8D%EB%8B%B4?node-id=150-226&t=2tpEhjNCggfnNovu-1",
       live: "https://nongdam.netlify.app/",
     },
     techStack: [
