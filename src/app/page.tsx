@@ -10,7 +10,7 @@ import Project from "@/components/pages/project";
 import Point from "@/components/pages/point";
 import ScrollToUp from "@/components/scrollToUp";
 
-const logos1 = [
+const logos = [
   "html",
   "css",
   "js",
@@ -21,8 +21,6 @@ const logos1 = [
   "sass",
   "styled-component",
   "tailwind",
-];
-const logos2 = [
   "axios",
   "gsap",
   "next",
@@ -32,8 +30,6 @@ const logos2 = [
   "zustand",
   "git",
   "sqlite",
-];
-const logos3 = [
   "aws",
   "firebase",
   "firestore",
@@ -42,8 +38,6 @@ const logos3 = [
   "mysql",
   "netlify",
   "postman",
-];
-const logos4 = [
   "androidstudio",
   "api",
   "bs4",
@@ -107,53 +101,22 @@ const Home = () => {
 
       {/* 첫 번째 슬라이드 */}
       <div className="w-full h-full">
-        <LogoSlider
-          logos={logos1}
-          folder="logo_1"
-          direction="left"
-          speed={100}
-        />
+        <LogoSlider logos={logos} folder="logos" direction="left" speed={100} />
       </div>
       {/* 프로필 */}
       <div ref={profileRef}>
         <Profile />
       </div>
 
-      {/* 두 번째 슬라이드 */}
-      <div className="w-full h-full">
-        <LogoSlider
-          logos={logos2}
-          folder="logo_2"
-          direction="right"
-          speed={100}
-        />
-      </div>
       {/* 프로젝트 */}
       <div ref={projectRef}>
         <Project />
-      </div>
-      {/* 세 번째 슬라이드 */}
-      <div className="w-full h-full">
-        <LogoSlider
-          logos={logos3}
-          folder="logo_3"
-          direction="left"
-          speed={100}
-        />
       </div>
 
       <div ref={contactRef}>
         <Point />
       </div>
-      {/* 네 번째 슬라이드 */}
-      <div className="w-full h-full">
-        <LogoSlider
-          logos={logos4}
-          folder="logo_4"
-          direction="right"
-          speed={100}
-        />
-      </div>
+
       <ScrollToUp />
     </main>
   );

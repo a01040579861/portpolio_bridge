@@ -17,7 +17,6 @@ interface LogoSliderProps {
 
 const LogoSlider = ({
   logos,
-  folder,
   direction = "left",
   speed = 100,
 }: LogoSliderProps) => {
@@ -71,8 +70,8 @@ const LogoSlider = ({
         {/* 로고 2배로 복제 (너비 확보용) */}
         {[...logos, ...logos].map((name, idx) => (
           <img
-            key={`${folder}-${name}-${idx}`}
-            src={`/slideLogos/${folder}/${name}.png`}
+            key={name + idx}
+            src={`/SlideLogos/logos/${name}.png`}
             alt={name}
             className="h-10 sm:h-14 md:h-16 lg:h-20 xl:h-24 px-2 sm:px-3 cursor-pointer transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.6)]"
           />
