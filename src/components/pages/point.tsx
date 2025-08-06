@@ -1,4 +1,4 @@
-import { Mail, Github, Instagram } from "lucide-react";
+import { Mail, Github, Instagram, FileText } from "lucide-react";
 
 const CONTACTS = [
   {
@@ -18,6 +18,12 @@ const CONTACTS = [
     label: "Instagram",
     value: "@184_ll",
     link: "https://instagram.com/184_ll",
+  },
+  {
+    icon: <FileText size={40} />,
+    label: "Resume & Cover Letter",
+    value: "이력서 다운로드",
+    link: "https://drive.google.com/uc?export=download&id=1bCTP04D71IWFMcZqyeDriPvvAT1PYuDm",
   },
 ];
 

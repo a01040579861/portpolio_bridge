@@ -73,7 +73,7 @@ export const projectData: ProjectItem[] = [
     ],
     createdAt: "2025-04-18",
     updatedAt: "2025-06-24",
-    tags: ["야구", "커뮤니티", "실시간"],
+    tags: ["야구", "커뮤니티", "실시간", "OTT", "e-commerce"],
     leadership: "팀원 간 소통하고, 웹크롤링 및 json설계 담당, 백엔드 서버 담당",
     contribution: "약 35% (크롤링, 프론트엔드 UI, json 서버, GSAP)",
     myTasks: [
