@@ -100,7 +100,8 @@ export const projectData: ProjectItem[] = [
     isTeamProject: false,
     period: {
       start: "2025-06-05",
-      duration: "진행 중",
+      end: "2025-07-05",
+      duration: "1개월",
     },
     links: {
       github: "https://github.com/a01040579861/portpolio_bridge.git",
@@ -124,7 +125,7 @@ export const projectData: ProjectItem[] = [
     features: [{ title: "포트폴리오", description: "개인 포트폴리오" }],
     createdAt: "2025-06-05",
     updatedAt: "2025-06-05",
-    tags: ["Portfolio", "Next.js", "TypeScript", "Vercel"],
+    tags: ["Portfolio", "Next.js", "TypeScript", "Vercel", "GSAP", "Tailwind"],
   },
   {
     id: 2,
