@@ -23,7 +23,7 @@ const CONTACTS = [
     icon: <FileText size={40} />,
     label: "Resume & Cover Letter",
     value: "이력서 다운로드",
-    link: "https://drive.google.com/uc?export=download&id=1bCTP04D71IWFMcZqyeDriPvvAT1PYuDm",
+    link: "https://drive.google.com/uc?export=download&id=1-puWIvBvVLC_bHOCJ2UD_2hlrCpVR2IU",
   },
 ];
 
