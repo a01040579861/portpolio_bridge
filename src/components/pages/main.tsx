@@ -105,9 +105,9 @@ const Main = () => {
             <br />
             <span
               ref={(el) => setLineRef(el, 2)}
-              className="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-6xl block"
+              className="font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl block"
             >
-              FullStack Developer 이성일
+              FullStack Developer & Backend Developer 이성일
             </span>
             <span className="block mt-4 sm:mt-6 md:mt-8 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-medium inline-flex items-center justify-center sm:justify-start">
               <span ref={projectTextRef} className="text-[var(--light)]">
