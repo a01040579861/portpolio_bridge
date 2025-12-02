@@ -171,6 +171,13 @@ const Profile = () => {
                   >
                     2022.08 ~ 2023.08 주식회사 뱅코
                   </span>,
+                  <span
+                    key="ilogin"
+                    className="text-[var(--light)] cursor-pointer hover:text-[var(--sub)] transition"
+                    onClick={() => handleCompanyClick("GenG Esports")}
+                  >
+                    2025.09 ~ 2025.12 GenG Esports
+                  </span>,
                 ],
               },
               {

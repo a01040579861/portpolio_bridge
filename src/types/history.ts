@@ -57,6 +57,30 @@ export const companyHistories: CompanyHistory[] = [
       "- DB 설계 보조 및 관리MySQL 기반으로 회원 정보, 거래 이력, 탈퇴 처리 등을 저장하는 테이블 설계에 참여, 실시간 거래 데이터가 누적되면서 생기는 DB 부하나 오류를 확인하고, 쿼리 성능을 개선하거나 오류를 수정하는 업무",
     ],
   },
+  {
+    company: "GenG Esports",
+    period: "2025.09 ~ 2025.12",
+    position: "IT Helpe Desk",
+    description: [
+      "강의실 PC 및 네트워크 관리",
+      "하드웨어 및 소프트웨어 문제 해결",
+      "강의실 PC 서버 관리",
+    ],
+    clientBasedProjects: [
+      "GenG Esports",
+      "GenG Global Academy",
+      "선수실",
+      "본사 IT 지원",
+    ],
+    details: [
+      "- GenG Esports에서 IT Help Desk로 근무하며 강의실 PC 및 네트워크 관리, 하드웨어 및 소프트웨어 문제 해결, 강의실 PC 서버 관리 등의 업무를 수행했습니다. 다양한 IT 지원 업무를 통해 사용자들이 원활하게 학습할 수 있도록 지원하였습니다.",
+      "- GenG Global Academy의 IT 인프라를 유지보수하고, 사용자 지원을 제공하여 학습 환경의 안정성을 확보하는 데 기여했습니다.",
+      "- 선수실 내 IT 시스템의 효율적인 운영을 위해 다양한 기술적 문제를 신속하게 해결하고, 사용자 만족도를 높이는 데 주력했습니다.",
+      "- 본사 직원들의 IT 관련 요청을 처리하며, 원활한 업무 진행을 지원했습니다.",
+      "- GenG Esports의 IT 인프라를 지속적으로 개선하고, 최신 기술 동향을 반영하여 최적의 학습 환경을 제공하는 데 기여했습니다.",
+      "- 강의실 PC 네트워크, 서버, 하드웨어 및 소프트웨어 문제 해결 등 다양한 IT 지원 업무를 수행하였습니다.",
+    ],
+  },
 ];
 
 export type { CompanyHistory };
